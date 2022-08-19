@@ -24,6 +24,14 @@ module Enumerable
     end
     condition_met
   end
+
+  def my_any?(&conditional)
+    condition_met = false
+    my_each do |element|
+      condition_met = true if conditional.call(element)
+    end
+    condition_met
+  end
 end
 
 # You will first have to define my_each
