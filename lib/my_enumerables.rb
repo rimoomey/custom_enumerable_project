@@ -17,8 +17,9 @@ end
 class Array
   # Define my_each here
   def my_each
+    arr = []
     each do |element|
-      yield element
+      arr << yield(element)
     end
   end
 end
