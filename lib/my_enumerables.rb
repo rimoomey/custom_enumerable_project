@@ -40,6 +40,18 @@ module Enumerable
     end
     condition_met
   end
+
+  def my_count(&conditional)
+    if block_given?
+      count = 0
+      my_each do |element|
+        count += 1 if conditional.call(element)
+      end
+      count
+    else
+      self.length
+    end
+  end
 end
 
 # You will first have to define my_each
