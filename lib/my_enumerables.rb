@@ -52,6 +52,12 @@ module Enumerable
       self.length
     end
   end
+
+  def my_map(&block_function)
+    arr = []
+    my_each { |element| arr.push block_function.call(element) }
+    arr
+  end
 end
 
 # You will first have to define my_each
