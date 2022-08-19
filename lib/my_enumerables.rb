@@ -32,6 +32,14 @@ module Enumerable
     end
     condition_met
   end
+
+  def my_none?(&conditional)
+    condition_met = true
+    my_each do |element|
+      condition_met = false if conditional.call(element)
+    end
+    condition_met
+  end
 end
 
 # You will first have to define my_each
