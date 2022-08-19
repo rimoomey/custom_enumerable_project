@@ -16,6 +16,14 @@ module Enumerable
     end
     arr
   end
+
+  def my_all?(&conditional)
+    condition_met = true
+    my_each do |element|
+      condition_met = false unless conditional.call(element)
+    end
+    condition_met
+  end
 end
 
 # You will first have to define my_each
