@@ -58,8 +58,14 @@ module Enumerable
     my_each { |element| arr.push block_function.call(element) }
     arr
   end
-end
 
+  def my_inject(initial_value, &block_function)
+    my_each do |element|
+      initial_value = block_function.call(initial_value, element)
+    end
+    initial_value
+  end
+end
 # You will first have to define my_each
 # on the Array class. Methods defined in
 # your enumerable module will have access
